@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+ <b>Location:</b>
+  <form name="loc">
+   <Input type = radio name = r1 value = "0">Featured Torrent<br>
+   <Input type = radio name = r1 value = "1">LREC<br>
+   <Input type = radio name = r1 value = "2">Featured Torrent - Companion
+  </form>
+
+<script type="text/javascript">
+ function GenerateCode() {
+
+ chosen = ""
+ len = document.loc.r1.length
+
+ for (i = 0; i <len; i++) {
+ if (document.loc.r1[0].checked) { 
+	alert("You selected Featured Torrent.")
+	end
+ }	
+
+ else
+	alert("You selected something else.")
+    end
+
+/if (document.location.r1[i].checked) {
+/chosen = document.loc.r1[i].value
+/}
+/}
+
+/if (chosen == "") {
+/alert("No Location Chosen")
+/}
+/else {
+/alert(chosen) 
+/}
+/}
+</script>
+
+ <form>
+     <input type="button" value="Generate alt text" onclick="GenerateCode();">
+ </form>
+
+</body>
+</html>
