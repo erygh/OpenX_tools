@@ -18,7 +18,7 @@
  len = document.loc.r1.length
 
  for (i = 0; i <len; i++) {
- if (document.loc.r1[0].checked) { 
+ if (document.loc.r1[i].checked) { 
 	alert("You selected Featured Torrent.")
 	end
  }	
@@ -26,19 +26,20 @@
  else
 	alert("You selected something else.")
     end
+}
+}
+/*if (document.location.r1[i].checked) {
+chosen = document.loc.r1[i].value
+}
+}
 
-/if (document.location.r1[i].checked) {
-/chosen = document.loc.r1[i].value
-/}
-/}
-
-/if (chosen == "") {
-/alert("No Location Chosen")
-/}
-/else {
-/alert(chosen) 
-/}
-/}
+if (chosen == "") {
+alert("No Location Chosen")
+}
+else {
+alert(chosen) 
+}
+} */
 </script>
 
  <form>
