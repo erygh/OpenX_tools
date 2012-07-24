@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+ function jobWindow(){
+  var locationValue;
+  var el = document.getElementsByTagName('input');
+
+  for( i = 0; i < el.length; i++ ){
+   if (document.forms['loc'].el[i].type === 'radio' && document.forms['loc'].el[i].name === 'r1')
+   {
+     if(document.forms['loc'].el[i].checked == true )
+     {
+       locationValue = document.forms['loc'].el[i].value;
+       break;
+     }
+   }
+  }
+  alert( "val = " + locationValue );
+ }
+</script>
+</head>
+
+<body>
+ <b>Location:</b>
+  <form name="loc">
+   <Input type = radio name = r1 value = "0" checked>Featured Torrent<br>
+   <Input type = radio name = r1 value = "1">LREC<br>
+   <Input type = radio name = r1 value = "2">Featured Torrent - Companion
+  </form>
+  <br>
+
+ <b>AutoExec:</b>
+  <form name="autoexec">
+   <Input type = radio name = r2 value = "0" checked>Off<br>
+   <Input type = radio name = r2 value = "1">On<br>
+  </form>  
+
+<br>
+ <b>Positioning:</b>
+  <form name="pos">
+   <Input type = text name = p1 value = "0">Top<br>
+   <Input type = text name = p2 value = "0">Bottom<br>
+   <Input type = text name = p3 value = "0">Left<br>
+   <Input type = text name = p4 value = "0">Right<br>    
+  </form>
+
+<br>
+ <b>Additional info:</b>
+  <form name="additional">
+   <Input type = text name = a1 value = "0">Background Color<br>
+   <Input type = radio name = r3 value = "0" checked>Hex
+   <Input type = radio name = r3 value = "1">DEC<br><br>
+   <Input type = text name = a2 value = "0">Clickthrough URL<br>    
+   <Input type = text name = a3 value = "0">Title<br>
+   <Input type = text name = a4 value = "0">Size of Torrent<br>
+   <Input type = text name = a5 value = "0">Rating<br>    
+   <Input type = text name = a6 value = "0">Health<br>    
+  </form>  
+
+<script type="text/javascript">
+ function ConvertToDec() {
+bgcolor = document.additional.a1.value
+bgcolorHex = parseInt(hexString, 16);
+}
+</script>
+
+<script type="text/javascript">
+ function Validate() {
+
+//locationValue = document.forms["loc"].elements["r1"].value
+topPos = document.forms["pos"].elements["p1"].value
+bottomPos = document.pos.p2.value
+leftPos = document.pos.p3.value
+rightPos = document.pos.p4.value
+clickURL = document.additional.a2.value
+titleText = document.additional.a3.value
+torrentSize = document.additional.a4.value
+rating = document.additional.a5.value
+health = document.additional.a6.value
+
+
+if (topPos < 0 || topPos > 4000 ) {
+alert("Top position " + topPos + " is not valid.  Please enter another value.");
+ }
+else {
+  document.write("{\"loc\":" + locationValue) 
+  }
+}
+</script>
+
+
+<script type="text/javascript">
+// function GenerateCode() {
+//  document.write("abc123x4g" + topPos + "bottom: " + bottomPos);
+ //}
+ //end
+</script>
+
+ <form>
+     <input type="button" value="Generate alt text!" onclick="Validate();">
+ </form>
+
+</body>
+</html>
