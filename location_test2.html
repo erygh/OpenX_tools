@@ -78,9 +78,13 @@ var health = document.forms["additional"].elements["a6"].value;
 // }
 //else {
   
-document.write("{\"loc\":" + locationValue + ", \"top\":" + topPos + ", \"bottom\":" + bottomPos + ", \"left\":" + leftPos + ", \"right\":" + rightPos + ", \"title\":" + titleText + ", \"torsize\":" + torrentSize + ", \"rating\":" + rating + ", \"health\":" + health + ", \"bkgrdcolor\":" + bgcolor + "}"); 
+var colorR = parseInt(bgcolor.slice(0,2), 16);
+var colorG = parseInt(bgcolor.slice(2,2), 16);
+var colorB = parseInt(bgcolor.slice(4,2), 16);
 
-document.write("The first two letters of the color are " + parseInt(bgcolor.slice(0,2), 16));
+document.write("{\"loc\":" + locationValue + ", \"top\":" + topPos + ", \"bottom\":" + bottomPos + ", \"left\":" + leftPos + ", \"right\":" + rightPos + ", \"title\":" + titleText + ", \"torsize\":" + torrentSize + ", \"rating\":" + rating + ", \"health\":" + health + ", \"bkgrdcolor\":" + bgcolor + "}"); 
+<br>
+document.write("BGR: " + colorB + colorG + colorR);
     
 
  // }
