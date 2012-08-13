@@ -42,8 +42,18 @@
    <Input type = text name = a3 value = "0">Title<br>
    <Input type = text name = a4 value = "0">Size of Torrent<br>
    <Input type = text name = a5 value = "0">Rating<br>    
-   <Input type = text name = a6 value = "0">Health<br>    
-  </form>  
+  </form>
+  <br>
+
+  <b>Health:</b> This sets the torrent health
+  <form name="hlh">
+   <Input type = radio name = r3 value = "0" checked onclick="locationValue = 0">0<br>
+   <Input type = radio name = r3 value = "1" onclick="locationValue = 1">1<br>
+   <Input type = radio name = r3 value = "2" onclick="locationValue = 2">2<br>
+   <Input type = radio name = r3 value = "3" onclick="locationValue = 3">3<br>
+   <Input type = radio name = r3 value = "4" onclick="locationValue = 4">4<br>
+  </form>
+  <br>
 
 <script type="text/javascript">
 // function ConvertToDecIfNeeded() {
@@ -54,7 +64,7 @@
 </script>
 
 <script type="text/javascript">
- function Validate() {
+ function Generate() {
 
   // get page elements and set them as variables
   //locationValue = document.forms["loc"].elements["r1"].value
@@ -67,14 +77,10 @@
   var titleText = document.forms["additional"].elements["a3"].value;
   var torrentSize = document.forms["additional"].elements["a4"].value;
   var rating = parseFloat(document.forms["additional"].elements["a5"].value);
-  var health = parseFloat(document.forms["additional"].elements["a6"].value);
+  var health = document.forms["hlh"].elements["r3"].value;
 
   if (rating < 0 || rating > 5.0) {
     alert("The rating you entered, " + rating + " is an invalid entry.  Try again, fool.")
-  }
-  else {
-  if (health < 0 || health > 4.0) {
-    alert("The heath value you entered is whack.  You entered " + health + " try again.")
   }
   else {
   if (bgcolor.length < 6 || bgcolor.length > 6) {
@@ -92,7 +98,6 @@
 
 
     document.write("{\"loc\":" + locationValue + ", \"top\":" + topPos + ", \"bottom\":" + bottomPos + ", \"left\":" + leftPos + ", \"right\":" + rightPos + ", \"title\":" + titleText + ", \"torsize\":" + torrentSize + ", \"rating\":" + rating + ", \"health\":" + health + ", \"bkgrdcolor\":" + colorbgrDec + "}");
-      }
      } 
     }
   }
@@ -100,7 +105,7 @@
 </script>
 
  <form>
-     <input type="button" value="Generate alt text!" onclick="Validate();">
+     <input type="button" value="Generate alt text!" onclick="Generate();">
  </form>
 
 </body>
