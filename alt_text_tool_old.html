@@ -4,7 +4,6 @@
   <script type="text/javascript">
   var locationValue = 0;
   var autoexecValue = 0;
-  var healthValue = 0;
   </script>
 </head>
 
@@ -48,39 +47,27 @@
 
   <b>Health:</b> This sets the torrent health
   <form name="hlh">
-   <Input type = radio name = r3 value = "0" checked onclick="healthValue = 0">0<br>
-   <Input type = radio name = r3 value = "1" onclick="healthValue = 1">1<br>
-   <Input type = radio name = r3 value = "2" onclick="healthValue = 2">2<br>
-   <Input type = radio name = r3 value = "3" onclick="healthValue = 3">3<br>
-   <Input type = radio name = r3 value = "4" onclick="healthValue = 4">4<br>
+   <Input type = radio name = r3 value = "0" checked onclick="locationValue = 0">0<br>
+   <Input type = radio name = r3 value = "1" onclick="locationValue = 1">1<br>
+   <Input type = radio name = r3 value = "2" onclick="locationValue = 2">2<br>
+   <Input type = radio name = r3 value = "3" onclick="locationValue = 3">3<br>
+   <Input type = radio name = r3 value = "4" onclick="locationValue = 4">4<br>
   </form>
   <br>
 
 <script type="text/javascript">
-// function validateRating() {
-/*
-  var rating = document.forms["additional"].elements["a5"].value;
-    // get the value
-    var input = rating;
-    regex = /(^\d{0,1}$|^\d{0,2}[.]\d$)/;
-
-    if(regex.test(input)) {
-     var matches = input.match(regex);
-     for(var match in matches) {
-         alert("The validation function could run now.");
-     }
-    } else {
-      alert("Rating should be in the format x.x");
- }
-*/
- //   Generate();  
-// } 
+// function ConvertToDecIfNeeded() {
+// if HEX is selected, then run the function to convert to DEC.
+//  if (document.forms["additional"].elements.checked == true)
+//if (bgcolor == "") { "bgcolorHex = DAFFFC"}
+// else {bgcolor = parseInt(bgcolorHex, 16);}
 </script>
 
 <script type="text/javascript">
  function Generate() {
 
   // get page elements and set them as variables
+  //locationValue = document.forms["loc"].elements["r1"].value
   var bgcolor = document.forms["additional"].elements["a1"].value;
   var topPos = document.forms["pos"].elements["p1"].value;
   var bottomPos = document.forms["pos"].elements["p2"].value;
@@ -89,8 +76,13 @@
   var clickURL = document.forms["additional"].elements["a2"].value;
   var titleText = document.forms["additional"].elements["a3"].value;
   var torrentSize = document.forms["additional"].elements["a4"].value;
-  var ratingv = document.forms["additional"].elements["a5"].value;
+  var rating = parseFloat(document.forms["additional"].elements["a5"].value);
+  var health = document.forms["hlh"].elements["r3"].value;
 
+  if (rating < 0 || rating > 5.0) {
+    alert("The rating you entered, " + rating + " is an invalid entry.  Try again, fool.")
+  }
+  else {
   if (bgcolor.length < 6 || bgcolor.length > 6) {
   alert("Background " + bgcolor + " is an invalid length.  Please enter another value.");
   }
@@ -104,7 +96,9 @@
     var colorB = parseInt((bgcolor).substring(4,6), 16);
     var colorbgrDec = (colorB * 65536) + (colorG * 256) + colorR;
 
-    document.write("{\\\"loc\\\":" + locationValue + ", \\\"autoexec\\\":" + autoexecValue + ", \\\"topPos\\\":" + topPos + ", \\\"bottom\\\":" + bottomPos + ", \\\"left\\\":" + leftPos + ", \\\"right\\\":" + rightPos + ", \\\"title\\\":" + titleText + ", \\\"torsize\\\":" + torrentSize + ", \\\"rating\\\":" + ratingv + ", \\\"health\\\":" + healthValue + ", \\\"bkgrdcolor\\\":" + colorbgrDec + "}");
+
+    document.write("{\"loc\":" + locationValue + ", \"top\":" + topPos + ", \"bottom\":" + bottomPos + ", \"left\":" + leftPos + ", \"right\":" + rightPos + ", \"title\":" + titleText + ", \"torsize\":" + torrentSize + ", \"rating\":" + rating + ", \"health\":" + health + ", \"bkgrdcolor\":" + colorbgrDec + "}");
+     } 
     }
   }
  }
