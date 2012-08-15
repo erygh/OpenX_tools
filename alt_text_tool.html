@@ -5,6 +5,7 @@
   var locationValue = 0;
   var autoexecValue = 0;
   var healthValue = 0;
+  var clickURLType = 0;
   </script>
 </head>
 
@@ -56,6 +57,13 @@
   </form>
   <br>
 
+  <b>Click URL Type:</b> Toggles between downloading a torrent file and popping an HTML window
+  <form name="clkURL">
+   <Input type = radio name = r4 value = "0" checked onclick="clickURLType = 0">]Torrent<br>
+   <Input type = radio name = r4 value = "1" onclick="clickURLType = 1">HTML<br>
+  </form>
+  <br>
+
 <script type="text/javascript">
 // function validateRating() {
 /*
@@ -104,7 +112,7 @@
     var colorB = parseInt((bgcolor).substring(4,6), 16);
     var colorbgrDec = (colorB * 65536) + (colorG * 256) + colorR;
 
-    document.write("{\\\"loc\\\":" + locationValue + ", \\\"autoexec\\\":" + autoexecValue + ", \\\"topPos\\\":" + topPos + ", \\\"bottom\\\":" + bottomPos + ", \\\"left\\\":" + leftPos + ", \\\"right\\\":" + rightPos + ", \\\"title\\\":" + titleText + ", \\\"torsize\\\":" + torrentSize + ", \\\"rating\\\":" + ratingv + ", \\\"health\\\":" + healthValue + ", \\\"bkgrdcolor\\\":" + colorbgrDec + "}");
+    document.write("{\\\"loc\\\":" + locationValue + ", \\\"autoexec\\\":" + autoexecValue + ", \\\"topPos\\\":" + topPos + ", \\\"bottom\\\":" + bottomPos + ", \\\"left\\\":" + leftPos + ", \\\"right\\\":" + rightPos + ", \\\"title\\\":" + titleText + ", \\\"torsize\\\":" + torrentSize + ", \\\"rating\\\":" + ratingv + ", \\\"health\\\":" + healthValue + ", \\\"clickUrlType\\\":" + clickURLType + ", \\\"bkgrdcolor\\\":" + colorbgrDec + "}");
     }
   }
  }
