@@ -65,9 +65,13 @@
   <br>
 
 <script type="text/javascript">
-// function validateRating() {
-/*
+function validateRating() {
+
   var rating = document.forms["additional"].elements["a5"].value;
+  if(rating < 0 || rating > 5) {
+    alert("Rating must be a number between 1 and 5.")
+  }
+  else {
     // get the value
     var input = rating;
     regex = /(^\d{0,1}$|^\d{0,2}[.]\d$)/;
@@ -75,14 +79,14 @@
     if(regex.test(input)) {
      var matches = input.match(regex);
      for(var match in matches) {
-         alert("The validation function could run now.");
+         Generate();
+         break;
      }
     } else {
       alert("Rating should be in the format x.x");
- }
-*/
- //   Generate();  
-// } 
+  }
+ }   
+} 
 </script>
 
 <script type="text/javascript">
@@ -119,7 +123,7 @@
 </script>
 
  <form>
-     <input type="button" value="Generate alt text!" onclick="Generate();">
+     <input type="button" value="Generate alt text!" onclick="validateRating();">
  </form>
 
 </body>
