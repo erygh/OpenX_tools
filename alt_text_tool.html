@@ -86,6 +86,8 @@ function validateRating() {
       alert("Rating should be in the format x.x");
   }
  }   
+
+ return false;
 } 
 </script>
 
@@ -116,7 +118,9 @@ function validateRating() {
     var colorB = parseInt((bgcolor).substring(4,6), 16);
     var colorbgrDec = (colorB * 65536) + (colorG * 256) + colorR;
 
-    document.write("{\\\"loc\\\":" + locationValue + ", \\\"autoexec\\\":" + autoexecValue + ", \\\"info\\\": {" + " \\\"top\\\":" + topPos + ", \\\"bottom\\\":" + bottomPos + ", \\\"left\\\":" + leftPos + ", \\\"right\\\":" + rightPos + " }, \\\"title\\\":\\\"" + titleText + "\\\",\\\"torsize\\\":\\\"" + torrentSize + "\\\", \\\"rating\\\":\\\"" + ratingv + "\\\",\\\"health\\\":" + healthValue + ",\\\"clickUrlType\\\":" + clickURLType + ",\\\"bkgrdcolor\\\":" + colorbgrDec + "}");
+    var values = "{\\\"loc\\\":" + locationValue + ", \\\"autoexec\\\":" + autoexecValue + ", \\\"info\\\": {" + " \\\"top\\\":" + topPos + ", \\\"bottom\\\":" + bottomPos + ", \\\"left\\\":" + leftPos + ", \\\"right\\\":" + rightPos + " }, \\\"title\\\":\\\"" + titleText + "\\\",\\\"torsize\\\":\\\"" + torrentSize + "\\\", \\\"rating\\\":\\\"" + ratingv + "\\\",\\\"health\\\":" + healthValue + ",\\\"clickUrlType\\\":" + clickURLType + ",\\\"bkgrdcolor\\\":" + colorbgrDec + "}";
+
+    document.body.innerHTML += values;
     }
   }
  }
