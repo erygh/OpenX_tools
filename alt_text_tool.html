@@ -6,6 +6,7 @@
   var autoexecValue = 0;
   var healthValue = 0;
   var clickURLType = 0;
+  var hideFreeReadyButtonValue = 0;
   </script>
 </head>
 
@@ -34,6 +35,13 @@
    <Input type = text name = p2 value = "0">Bottom<br>
    <Input type = text name = p3 value = "0">Left<br>
    <Input type = text name = p4 value = "0">Right<br>    
+  </form>
+  <br>
+
+   <b>hideFreeReady:</b>  This hides the free and ready button.
+  <form name="hidefr">
+   <Input type = radio name = r5 value = "0" checked onclick="hideFreeReadyButtonValue = 0">Show [Default]<br>
+   <Input type = radio name = r5 value = "1" onclick="hideFreeReadyButtonValue = 1">Hide<br> 
   </form>
   <br>
  
@@ -131,7 +139,7 @@ function validateRating() {
     var colorB = parseInt((bgcolor).substring(4,6), 16);
     var colorbgrDec = (colorB * 65536) + (colorG * 256) + colorR;
 
-    var values = "{\\\"loc\\\":" + locationValue + ", \\\"autoexec\\\":" + autoexecValue + ", \\\"info\\\": {" + " \\\"top\\\":" + topPos + ", \\\"bottom\\\":" + bottomPos + ", \\\"left\\\":" + leftPos + ", \\\"right\\\":" + rightPos + " }, \\\"title\\\":\\\"" + titleText + "\\\",\\\"torsize\\\":\\\"" + torrentSize + "\\\", \\\"rating\\\":\\\"" + ratingv + "\\\",\\\"health\\\":" + healthValue + ",\\\"clickUrlType\\\":" + clickURLType + ",\\\"bkgrdcolor\\\":" + colorbgrDec + "}";
+    var values = "{\\\"loc\\\":" + locationValue + ", \\\"autoexec\\\":" + autoexecValue + ", \\\"hideFreeReadyButton\\\":" + hideFreeReadyButtonValue + ", \\\"info\\\": {" + " \\\"top\\\":" + topPos + ", \\\"bottom\\\":" + bottomPos + ", \\\"left\\\":" + leftPos + ", \\\"right\\\":" + rightPos + " }, \\\"title\\\":\\\"" + titleText + "\\\",\\\"torsize\\\":\\\"" + torrentSize + "\\\", \\\"rating\\\":\\\"" + ratingv + "\\\",\\\"health\\\":" + healthValue + ",\\\"clickUrlType\\\":" + clickURLType + ",\\\"bkgrdcolor\\\":" + colorbgrDec + "}";
 
     document.body.innerHTML += values;
     }
