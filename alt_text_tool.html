@@ -126,9 +126,9 @@ function validateRating() {
   var torrentSize = document.forms["additional"].elements["a4"].value;
   var ratingv = document.forms["additional"].elements["a5"].value;
 
-  if (bgcolor.length < 6 || bgcolor.length > 6) {
-  alert("Background " + bgcolor + " is an invalid length.  Please enter another value.");
-  }
+  //if (bgcolor.length < 6 || bgcolor.length > 6) {
+ // alert("Background " + bgcolor + " is an invalid length.  Please enter another value.");
+ // }
   else {
     if (topPos < 0 || topPos > 4000 ) {
     alert("Top position " + topPos + " is not valid.  Please enter another value.");
@@ -143,7 +143,7 @@ function validateRating() {
 
     document.body.innerHTML += values;
     }
-  }
+ // }
  }
 </script>
 
