@@ -16,7 +16,7 @@
   <form name="loc">
    <Input type = radio name = r1 value = "0" checked onclick="locationValue = 0">Featured Torrent<br>
    <Input type = radio name = r1 value = "1" onclick="locationValue = 1">LREC<br>
-   <Input type = radio name = r1 value = "2" onclick="locationValue = 2">Featured Torrent Companion
+   <Input type = radio name = r1 value = "2" onclick="locationValue = 2; GenerateFTCompanion();">Featured Torrent Companion
   </form>
   <br>
 
@@ -60,7 +60,8 @@
   <b>Click URL Type:</b> Toggles between downloading a torrent file and popping an HTML window
   <form name="clkURL">
    <Input type = radio name = r4 value = "0" checked onclick="clickURLType = 0">Torrent<br>
-   <Input type = radio name = r4 value = "1" onclick="clickURLType = 1">HTML<br>
+   <Input type = radio name = r4 value = "1" onclick="clickURLType = 1">In-client HTML<br>
+   <Input type = radio name = r4 value = "2" onclick="clickURLType = 2">External HTML<br>
   </form>
   <br>
 
@@ -89,6 +90,18 @@ function validateRating() {
 
  return false;
 } 
+</script>
+
+<script type="text/javascript">
+ function GenerateFTCompanion() {
+
+    var locationValue = 2;
+    //sets the location and clickURL type and displays it on screen when set to featured torrent companion banner.
+    var valuesFTC = "{\\\"loc\\\":" + locationValue + ",\\\"clickUrlType\\\":" + clickURLType + "}";
+
+    document.body.innerHTML += valuesFTC;
+
+ }
 </script>
 
 <script type="text/javascript">
